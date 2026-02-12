@@ -1,5 +1,5 @@
 # Sistema de Estoque de Frutas com Array em JavaScript
--
+
  Descrição
  --
 
@@ -79,6 +79,7 @@ Mensagem informando quando o estoque estiver vazio
 imagens
 --
 <img width="900" height="900" alt="image" src="https://github.com/user-attachments/assets/4ec452b2-2836-481b-ab13-286ebb5b8ea8" />
+
 *Figura 1 – Tela principal do sistema de estoque de frutas.*
 
  Conclusão
