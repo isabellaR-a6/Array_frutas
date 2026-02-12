@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo array em javascript</title>
+    <style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: antiquewhite;
+        padding: 30px;
+    }
+    h1{
+        color: brown;
+        text-align: center;
+    }
+    #resultado{
+        background-color: antiquewhite;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        margin: 20px auto;
+    }
+    button{
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        background-color: brown;
+        color: antiquewhite;
+        transition: 0.2s;
+    }
+    button:hover{
+        background-color: rgb(202, 80, 80);
+    }
+</style>
+</head>
+<body>
+    <h1>Exemplo de uso de array em JS</h1>
+    <div id="resultado"></div>
+
+    <div style="text-align: center;">
+        <button onclick="mostrarFrutas()">Mostrar Frutas</button>
+        <button onclick="adicionarFruta()">Adicionar Fruta</button>
+        <button onclick="removerUltima()">Remover Ultima Fruta</button>
+    </div>
+
+    <script>
+        //Criação de um array vazio 
+        let frutas = [];
+        //função responsavel por exibir o conteudo do array na tela
+        function mostrarFrutas(){
+            //captura a div onde o resultado será mostrado
+            let resultadoDiv = document.getElementById("resultado");
+            // verifica se o array está vaio
+            if(frutas.length === 0){
+                //se estiver vazio, mostra  a imagem informando
+                resultadoDiv.innerHTML = `
+                <strong>Array completo:</strong> [] <br>
+                <strong>Quantidade de frutas:</strong> 0 <br>
+                <em> O array está vazio.</em>
+                `;
+            }else{
+                // caso o array tenha elementos
+                //frutas.join(", " ) transforma o array em texto separado por virgula
+                resultadoDiv.innerHTML = `
+                <strong>Array completo:</strong>[${frutas.join(", ")}] <br>
+                <strong>Quantidade de frutas:</strong> ${frutas.length} <br>
+                `;
+
+            }
+        }
+
+        //Função para adiconar uma nova fruta ao array
+        function adicionarFruta(){
+            //prompt abre uma caixa para o usuario digitar algo
+            let novaFruta = prompt("Digite o nome da nova fruta:");
+            //verifica se o usuario digitou algo 
+            if(novaFruta){
+                //push()adiciona um elemento no final do array
+                frutas.push(novaFruta);
+                //atualiza a exibição após adicionar
+                mostrarFrutas();
+            }
+        }
+
+        //função para remover a ultima fruta do array
+        function removerUltima(){
+            //verifica se o array tem elementos
+            if(frutas.length > 0){
+                //pop() Remove o ultimo elemento  do array
+                frutas.pop();
+            }else{
+                //se tiver vazio, mostra alerta
+                alert("O array já está vazio!");
+            }
+            //atualiza  a exibição apos remover
+            mostrarFrutas();
+        }
+        //Ao carregar a pagina, já mostra o estado inicial do array
+        mostrarFrutas();
+    </script>
+
+</body>
+</html>
